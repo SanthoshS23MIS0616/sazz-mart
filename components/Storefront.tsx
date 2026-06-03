@@ -144,7 +144,7 @@ export default function Storefront() {
       <header className="topbar">
         <Link href="/" className="brand" aria-label="Sandy Mart home">
           <span className="brand-mark"><ShoppingBag size={22} /></span>
-          <span>Sazz Mart</span>
+          <span>SAZZ MART</span>
         </Link>
         <nav className="nav-actions">
           <Link href="/orders" className="ghost-button"><PackageCheck size={18} /> Orders</Link>
@@ -160,7 +160,7 @@ export default function Storefront() {
       <section className="hero-grid">
         <div className="hero-copy">
           <p className="eyebrow"><Sparkles size={16} /> Find it. Love it. Own it.</p>
-          <h1>Sandy Mart</h1>
+          <h1>Sazz Mart</h1>
           <p className="hero-text">Trendy picks, smooth shopping, and everyday favorites brought together in one place you will remember.</p>
           <div className="hero-actions">
             <a className="primary-button" href="#catalog"><ShoppingBag size={19} /> Shop catalog</a>
