@@ -142,7 +142,7 @@ export default function Storefront() {
       <div className="ambient ambient-two" />
 
       <header className="topbar">
-        <Link href="/" className="brand" aria-label="Sandy Mart home">
+        <Link href="/" className="brand" aria-label="Sazz Mart home">
           <span className="brand-mark"><ShoppingBag size={22} /></span>
           <span>SAZZ MART</span>
         </Link>
