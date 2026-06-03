@@ -144,7 +144,7 @@ export default function Storefront() {
       <header className="topbar">
         <Link href="/" className="brand" aria-label="Sandy Mart home">
           <span className="brand-mark"><ShoppingBag size={22} /></span>
-          <span>Sandy Mart</span>
+          <span>Sazz Mart</span>
         </Link>
         <nav className="nav-actions">
           <Link href="/orders" className="ghost-button"><PackageCheck size={18} /> Orders</Link>
