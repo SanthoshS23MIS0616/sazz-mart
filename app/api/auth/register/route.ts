@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createUser, findUserByEmail } from "@/lib/db";
-import { hashPassword, publicUser, setSessionCookie } from "@/lib/security";
+import { hashPassword, publicUser } from "@/lib/security";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -18,6 +18,6 @@ export async function POST(request: Request) {
   }
 
   const user = await createUser({ name, email, passwordHash: await hashPassword(password), role: "user" });
-  await setSessionCookie(user);
+  // Session is set by the client using NextAuth signIn("credentials") after this call
   return NextResponse.json({ user: publicUser(user) }, { status: 201 });
 }
