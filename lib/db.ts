@@ -138,14 +138,14 @@ export async function findUserByEmail(email: string) {
   return db.users.findOne({ email: email.toLowerCase() });
 }
 
-export async function createUser(input: Pick<User, "name" | "email" | "passwordHash"> & { role?: "user" | "admin" }) {
+export async function createUser(input: Pick<User, "name" | "email"> & { passwordHash?: string; role?: "user" | "admin" }) {
   await seedDatabase();
   const user: User = {
     id: id(),
     name: input.name,
     email: input.email.toLowerCase(),
     role: input.role || "user",
-    passwordHash: input.passwordHash,
+    passwordHash: input.passwordHash || "",
     createdAt: new Date().toISOString()
   };
   const db = await collections();
@@ -155,6 +155,13 @@ export async function createUser(input: Pick<User, "name" | "email" | "passwordH
   }
   await db.users.insertOne(user);
   return user;
+}
+
+export async function findOrCreateGoogleUser(input: { name: string; email: string; image?: string }) {
+  const email = input.email.toLowerCase();
+  const existing = await findUserByEmail(email);
+  if (existing) return existing;
+  return createUser({ name: input.name, email, passwordHash: "", role: "user" });
 }
 
 export async function createOrder(input: {

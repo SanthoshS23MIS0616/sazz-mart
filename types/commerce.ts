@@ -5,7 +5,8 @@ export type User = {
   name: string;
   email: string;
   role: Role;
-  passwordHash: string;
+  passwordHash?: string; // Optional — Google OAuth users have no password
+  image?: string;
   createdAt: string;
 };
 

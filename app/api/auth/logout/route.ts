@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { clearSessionCookie } from "@/lib/security";
 
+// Logout is handled by NextAuth at /api/auth/signout
+// This route is kept for backward compatibility
 export async function POST() {
-  await clearSessionCookie();
   return NextResponse.json({ ok: true });
 }
