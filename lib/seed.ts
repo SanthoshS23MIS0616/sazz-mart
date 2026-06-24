@@ -1,5 +1,5 @@
 import type { Product, User } from "@/types/commerce";
-import { hashPassword } from "./security";
+import { hashPassword } from "./crypto";
 
 export const demoProducts: Product[] = [
   {
