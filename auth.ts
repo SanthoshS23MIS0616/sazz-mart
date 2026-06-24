@@ -27,17 +27,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async signIn({ account, profile }) {
-      if (account?.provider === "google" && profile?.email) {
-        await findOrCreateGoogleUser({
-          name: profile.name || profile.email,
-          email: profile.email,
-          image: (profile as any).picture || "",
-        });
-      }
-      return true;
-    },
+  callbacks: {async signIn() {
+  return true;
+},
     async jwt({ token, user }) {
       if (user) {
         if ((user as any).role) {
